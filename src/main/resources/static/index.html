@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Ada Beauty Studio • Agendamentos</title>
+<meta content="Sistema de agendamentos para salão de beleza — front-end HTML, CSS e JavaScript integrável com CRUD Spring Boot." name="description"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Cursor glow -->
+<div aria-hidden="true" class="cursor-glow"></div>
+<header class="topbar">
+<a aria-label="Ir para o início" class="brand" href="#inicio">
+<span class="brand-mark">A</span>
+<span class="brand-text">
+<strong>Ada</strong><em>Beauty</em>
+</span>
+</a>
+<nav aria-label="Navegação" class="nav">
+<a href="#servicos">Serviços</a><a href="#vitrine">Vitrine</a>
+<a href="#profissionais">Profissionais</a><a href="#depoimentos">Depoimentos</a>
+<a href="#agendar">Agendar</a>
+<a href="#localizacao">Localização</a>
+<a class="nav-cta" href="#agendar">Novo agendamento</a>
+</nav>
+<button aria-expanded="false" aria-label="Abrir menu" class="menu-btn" id="menuBtn">
+<span></span><span></span><span></span>
+</button>
+</header>
+<main id="inicio">
+<!-- HERO -->
+<section class="hero"><div aria-hidden="true" class="orbs"><span class="orb orb-1"></span><span class="orb orb-2"></span><span class="orb orb-3"></span><span class="orb orb-4"></span><span class="orb orb-5"></span><span class="orb orb-6"></span></div>
+<div aria-hidden="true" class="hero-media parallax" data-parallax="0.04">
+<img alt="" class="hero-img" loading="eager" src="assets/img/hero.jpg"/>
+<div class="hero-overlay"></div>
+</div>
+<div class="container hero-content">
+<div class="badge">CRUD + Spring Boot • Front-end</div>
+<h1>
+          Sistema de <span class="gold">Agendamentos</span> para Salão
+        </h1>
+<p>
+          Site intuitivo e padronizado com seções, vitrine de serviços, equipe e um painel de
+          agendamentos integrado ao seu backend (<code>/agendamentos</code>).
+        </p>
+<div class="hero-actions">
+<a class="btn btn-primary magnetic" href="#agendar">
+<span>Agendar agora</span>
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M13 5l7 7-7 7M20 12H4"></path></svg>
+</a>
+<a class="btn btn-ghost magnetic" href="#como-funciona">
+            Ver como funciona
+          </a>
+</div>
+<div class="hero-stats">
+<div class="stat">
+<div class="stat-top">
+<span class="dot"></span><strong>CRUD</strong>
+</div>
+<small>Criar • Listar • Atualizar • Deletar</small>
+</div>
+<div class="stat">
+<div class="stat-top">
+<span class="dot"></span><strong>UX</strong>
+</div>
+<small>Revela ao scroll • Microinterações</small>
+</div>
+<div class="stat">
+<div class="stat-top">
+<span class="dot"></span><strong>Integração</strong>
+</div>
+<small>Fetch REST com fallback local</small>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="hero-bottom-fade"></div>
+</section>
+<!-- COMO FUNCIONA -->
+<section class="section" id="como-funciona">
+<div class="container">
+<div class="section-head reveal">
+<h2>Como funciona</h2>
+<p>Um fluxo simples, do cliente até o banco — com transparência do que cada ação faz no CRUD.</p>
+</div>
+<div class="grid-3">
+<article class="card reveal" data-tilt="">
+<div class="card-icon">1</div>
+<h3>Criar</h3>
+<p>Preencha o formulário com serviço, profissional e data/hora. Enviamos um <code>POST</code>.</p>
+<div class="pill">POST /agendamentos</div>
+</article>
+<article class="card reveal" data-tilt="">
+<div class="card-icon">2</div>
+<h3>Listar</h3>
+<p>Selecione o dia e busque os horários do salão. Fazemos um <code>GET</code>.</p>
+<div class="pill">GET /agendamentos?data=YYYY-MM-DD</div>
+</article>
+<article class="card reveal" data-tilt="">
+<div class="card-icon">3</div>
+<h3>Atualizar &amp; Deletar</h3>
+<p>Edite um agendamento ou cancele. Usamos <code>PUT</code> e <code>DELETE</code> com parâmetros.</p>
+<div class="pill">PUT/DELETE /agendamentos</div>
+</article>
+</div>
+</div>
+</section>
+<!-- SERVIÇOS -->
+<section class="section section-alt" id="servicos">
+<div class="container">
+<div class="section-head reveal">
+<h2>Serviços</h2>
+</div>
+<div class="services">
+<article class="service-card reveal" data-tilt="">
+<img alt="Corte de cabelo" loading="lazy" src="assets/img/corte.jpg"/>
+<div class="service-meta">
+<h3>Corte</h3>
+<p>Do clássico ao moderno — com consultoria de visagismo.</p>
+<button class="chip" data-fill-service="Corte">Agendar corte</button>
+</div>
+</article>
+<article class="service-card reveal" data-tilt="">
+<img alt="Unhas e manicure" loading="lazy" src="assets/img/manicure1.jpg"/>
+<div class="service-meta">
+<h3>Unhas</h3>
+<p>Manicure, gel e nail art com acabamento impecável.</p>
+<button class="chip" data-fill-service="Unhas">Agendar unhas</button>
+</div>
+</article>
+<article class="service-card reveal" data-tilt="">
+<img alt="Extensão de cílios" loading="lazy" src="assets/img/cilios2.jpg"/>
+<div class="service-meta">
+<h3>Cílios</h3>
+<p>Alongamento e volume para realçar o olhar com leveza.</p>
+<button class="chip" data-fill-service="Cílios">Agendar cílios</button>
+</div>
+</article>
+<article class="service-card reveal" data-tilt="">
+<img alt="Tranças" loading="lazy" src="assets/img/trancas.jpg"/>
+<div class="service-meta">
+<h3>Tranças</h3>
+<p>Box braids, nagô e estilos personalizados.</p>
+<button class="chip" data-fill-service="Tranças">Agendar tranças</button>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="vitrine">
+<div class="container">
+<div class="section-head reveal">
+<h2>Vitrine</h2>
+</div>
+<div aria-label="Destaques em movimento" class="marquee reveal">
+<div class="marquee-track">
+<span>✨ Corte feminino</span><span>💅 Nail art</span><span>👁️ Volume russo</span><span>🧵 Tranças afro</span><span>🎨 Colorimetria</span><span>🧖‍♀️ Spa dos pés</span>
+<span>✨ Corte feminino</span><span>💅 Nail art</span><span>👁️ Volume russo</span><span>🧵 Tranças afro</span><span>🎨 Colorimetria</span><span>🧖‍♀️ Spa dos pés</span>
+</div>
+</div>
+<div class="gallery grid-3 reveal">
+<figure class="shot tilt-card">
+<img alt="Cabelo feminino com finalização" loading="lazy" src="assets/img/corte2.jpg"/>
+<figcaption>Corte &amp; Finalização</figcaption>
+</figure>
+<figure class="shot tilt-card">
+<img alt="Unhas decoradas em salão" loading="lazy" src="assets/img/unha.jpg"/>
+<figcaption>Unhas &amp; Nail Art</figcaption>
+</figure>
+<figure class="shot tilt-card">
+<img alt="Cílios em close" loading="lazy" src="assets/img/cilios3.jpg"/>
+<figcaption>Cílios &amp; Design</figcaption>
+</figure>
+<figure class="shot tilt-card">
+<img alt="Tranças femininas estilo afro" loading="lazy" src="assets/img/trancas3.jpg"/>
+<figcaption>Tranças Afro</figcaption>
+</figure>
+<figure class="shot tilt-card">
+<img alt="Pedicure em ambiente de salão" loading="lazy" src="assets/img/pedicure2.jpg"/>
+<figcaption>Pé &amp; Spa</figcaption>
+</figure>
+<figure class="shot tilt-card">
+<img alt="Profissional atendendo cliente em salão" loading="lazy" src="assets/img/cabeleleira.jpg"/>
+<figcaption>Atendimento Premium</figcaption>
+</figure>
+</div>
+<div class="metrics grid-4 reveal" role="list">
+<div class="metric" role="listitem"><strong data-count="1200">0</strong><span>Clientes atendidas</span></div>
+<div class="metric" role="listitem"><strong data-count="98">0</strong><span>Taxa de satisfação (%)</span></div>
+<div class="metric" role="listitem"><strong data-count="35">0</strong><span>Serviços por semana</span></div>
+<div class="metric" role="listitem"><strong data-count="10">0</strong><span>Anos de experiência</span></div>
+</div>
+</div>
+</section>
+
+<!-- PROFISSIONAIS -->
+<section class="section" id="profissionais">
+<div class="container">
+<div class="section-head reveal">
+<h2>Profissionais</h2>
+<p>Equipe com especialidades — escolha quem vai te atender.</p>
+</div>
+<div class="team grid-4">
+<article class="person reveal" data-fill-prof="Camila (Corte &amp; Color)" data-fill-service="Corte">
+<img alt="Profissional de cabelo" loading="lazy" src="assets/img/cabeleleira2.jpg"/>
+<div class="person-body">
+<h3>Camila</h3>
+<p>Corte &amp; colorimetria</p>
+<span class="tag">10+ anos</span>
+</div>
+</article>
+<article class="person reveal" data-fill-prof="Bruna (Unhas)" data-fill-service="Unhas">
+<img alt="Profissional de manicure" loading="lazy" src="assets/img/manicure3.jpg"/>
+<div class="person-body">
+<h3>Bruna</h3>
+<p>Manicure &amp; gel</p>
+<span class="tag">Nail art</span>
+</div>
+</article>
+<article class="person reveal" data-fill-prof="Larissa (Cílios)" data-fill-service="Cílios">
+<img alt="Profissional de cílios" loading="lazy" src="assets/img/lash2.jpg"/>
+<div class="person-body">
+<h3>Larissa</h3>
+<p>Lash designer</p>
+<span class="tag">Volume</span>
+</div>
+</article>
+<article class="person reveal" data-fill-prof="Rafa (Tranças)" data-fill-service="Tranças">
+<img alt="Profissional de tranças" loading="lazy" src="assets/img/trancista.jpg"/>
+<div class="person-body">
+<h3>Rafa</h3>
+<p>Tranças &amp; estilos afro</p>
+<span class="tag">Personalizado</span>
+</div>
+</article>
+</div>
+<div class="tip reveal">
+<strong>Dica:</strong> clique em um serviço ou profissional para preencher automaticamente no formulário.
+        </div>
+</div>
+</section>
+<section class="section section-alt" id="depoimentos">
+<div class="container">
+<div class="section-head reveal">
+<h2>Depoimentos</h2>
+</div>
+<div aria-label="Carrossel de depoimentos" class="testimonials reveal">
+<button aria-label="Depoimento anterior" class="t-nav prev magnetic" type="button">‹</button>
+<div class="t-viewport">
+<div class="t-track" id="tTrack">
+<article class="t-card">
+<p>“Atendimento impecável e o cabelo ficou exatamente como eu queria. Ambiente lindo!”</p>
+<div class="t-who">
+<span class="avatar">M</span>
+<div><strong>Marina</strong><small>Corte &amp; finalização</small></div>
+</div>
+</article>
+<article class="t-card">
+<p>“Minhas unhas duraram MUITO. Capricho nos detalhes e um acabamento perfeito.”</p>
+<div class="t-who">
+<span class="avatar">J</span>
+<div><strong>Jéssica</strong><small>Nail art</small></div>
+</div>
+</article>
+<article class="t-card">
+<p>“As tranças ficaram leves e bem feitas. Profissionalismo e carinho do começo ao fim.”</p>
+<div class="t-who">
+<span class="avatar">A</span>
+<div><strong>Ana</strong><small>Tranças</small></div>
+</div>
+</article>
+<article class="t-card">
+<p>“Meu alongamento de cílios ficou natural e poderoso. Recomendo demais!”</p>
+<div class="t-who">
+<span class="avatar">L</span>
+<div><strong>Letícia</strong><small>Cílios</small></div>
+</div>
+</article>
+</div>
+</div>
+<button aria-label="Próximo depoimento" class="t-nav next magnetic" type="button">›</button>
+</div>
+<div aria-label="Indicadores do carrossel" class="t-dots reveal" id="tDots"></div>
+</div>
+</section>
+
+<!-- AGENDAR -->
+<section class="section section-alt" id="agendar">
+<div class="container">
+<div class="section-head reveal">
+<h2>Agendar horário</h2>
+<p>Crie, liste, edite e cancele agendamentos (com integração REST e fallback local).</p>
+</div>
+<div class="booking">
+<form class="panel reveal" id="bookingForm">
+<div class="panel-head">
+<h3>Novo / Editar agendamento</h3>
+<p class="muted">Campos batem com sua entidade <code>Agendamento</code> (serviço, profissional, data/hora, cliente, telefone).</p>
+</div>
+<div class="form-grid">
+<label>
+<span>Serviço</span>
+<select id="servico" required="">
+<option disabled="" selected="" value="">Selecione…</option>
+<option>Corte</option>
+<option>Unhas</option>
+<option>Cílios</option>
+<option>Tranças</option>
+</select>
+</label>
+<label>
+<span>Profissional</span>
+<input id="profissional" placeholder="Ex: Camila (Corte &amp; Color)" required="" type="text"/>
+</label>
+<label>
+<span>Data</span>
+<input id="data" required="" type="date"/>
+</label>
+<label>
+<span>Hora</span>
+<input id="hora" required="" type="time"/>
+</label>
+<label>
+<span>Cliente</span>
+<input id="cliente" placeholder="Nome do cliente" required="" type="text"/>
+</label>
+<label>
+<span>Telefone</span>
+<input id="telefoneCliente" placeholder="(11) 99999-9999" required="" type="tel"/>
+</label>
+</div>
+<input id="editingKey" type="hidden" value=""/>
+<div class="form-actions">
+<button class="btn btn-primary magnetic" id="saveBtn" type="submit">
+<span>Salvar agendamento</span>
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 17l10-10M7 7h10v10"></path></svg>
+</button>
+<button class="btn btn-ghost magnetic" id="resetBtn" type="button">
+                Limpar
+              </button>
+<div class="status" id="status"></div>
+</div>
+<details class="api-hint">
+<summary>Endpoints usados</summary>
+<pre><code>POST   /agendamentos
+GET    /agendamentos?data=YYYY-MM-DD
+PUT    /agendamentos?cliente=...&amp;dataHoraAgendamento=YYYY-MM-DDTHH:mm
+DELETE /agendamentos?cliente=...&amp;dataHoraAgendamento=YYYY-MM-DDTHH:mm</code></pre>
+<p class="muted">Se der erro de CORS/porta, ajuste a variável <code>API_BASE</code> em <code>app.js</code>.</p>
+</details>
+</form>
+<aside class="panel reveal">
+<div class="panel-head">
+<h3>Painel do dia</h3>
+<p class="muted">Busque por data e gerencie os agendamentos.</p>
+</div>
+<div class="toolbar">
+<label class="toolbar-field">
+<span>Dia</span>
+<input id="buscarData" type="date"/>
+</label>
+<button class="btn btn-secondary magnetic" id="buscarBtn" type="button">
+                Buscar
+              </button>
+<button class="btn btn-ghost magnetic" id="hojeBtn" type="button">
+                Hoje
+              </button>
+</div>
+<div aria-live="polite" class="list" id="appointmentsList"></div>
+<div class="list-footer">
+<span class="muted" id="listMeta">—</span>
+<button class="btn btn-danger magnetic" id="limparCacheBtn" title="Remove o fallback local" type="button">
+                Limpar fallback local
+              </button>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<!-- LOCALIZAÇÃO -->
+<section class="section" id="localizacao">
+<div class="container">
+<div class="section-head reveal">
+<h2>Localização</h2>
+</div>
+<div class="location">
+<div class="panel reveal">
+<h3>Endereço</h3>
+<p class="muted">
+              Av. Bela Vista, 123 — Centro, São Paulo — SP<br/>
+              Seg–Sáb: 09:00–19:00 • Dom: fechado
+            </p>
+<div class="contact">
+<a class="contact-item magnetic" href="tel:+5511999999999">
+<span class="contact-icon">☎</span>
+<span>(11) 99999-9999</span>
+</a>
+<a class="contact-item magnetic" href="mailto:contato@adasbeauty.com">
+<span class="contact-icon">✉</span>
+<span>contato@adabeauty.com</span>
+</a>
+<a class="contact-item magnetic" href="#agendar">
+<span class="contact-icon">✦</span>
+<span>Agendar agora</span>
+</a>
+</div>
+</div>
+<div aria-label="Mapa do salão" class="map reveal">
+<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Avenida%20Paulista%2C%201000%2C%20S%C3%A3o%20Paulo&amp;output=embed" title="Mapa">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="container footer-inner">
+<div>
+<div class="brand brand-footer">
+<span class="brand-mark">A</span>
+<span class="brand-text"><strong>Ada</strong><em>Beauty</em></span>
+</div>
+<p class="muted">Front-end demo para integrar com CRUD Spring Boot.</p>
+</div>
+<div class="footer-links">
+<a href="#inicio">Topo</a>
+<a href="#servicos">Serviços</a>
+<a href="#profissionais">Profissionais</a>
+<a href="#agendar">Agendar</a>
+</div>
+<small class="muted">
+          © <span id="year"></span> • Todos os direitos reservados
+        </small>
+</div>
+</footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
